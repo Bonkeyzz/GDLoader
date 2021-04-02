@@ -11,6 +11,8 @@ This project aims to allow people to load their own mods in Geometry Dash withou
 3. Open `GDPatcher.exe` and on the open dialog point it to the `GeometryDash.exe` executable.
 4. After it says that the patch is done, copy the `Mods` folder and `GDLoader.dll` into the Geometry dash install directory. (You can also create your own Mods folder.)
 
+## Issues
+1. `GDLoader.dll` Base address is being relocated so the program crashes when the injected code tries to call the `pre_init` function. 
 
 ## Creating Mods
 An example addon is in this repo, currently only one function is implemented but more are coming in the future.
