@@ -15,9 +15,12 @@
 
 #include "PEFile.h"
 //==============================================================================
-#define DEBUG_ENABLED true;
+#include "__global_macro.h"
+#define CURRENTFILE "PEFile.cpp"
+
 #ifdef DEBUG_ENABLED
-#define echo(x)         MessageBox(0, x, "DEBUG", MB_ICONERROR);
+// #define echo(x)         MessageBox(0, x, "DEBUG", MB_ICONERROR);
+#define echo(f_, ...)   { printf("[DEBUG::%s] ", CURRENTFILE); printf((f_), ##__VA_ARGS__); printf("\n"); }
 #define echo2(x, y)     { char v[256]; strcpy_s(v, 256, x); strcat_s(v, 256, y); echo(v); }
 #define echo3(x, y, z)  { char w[256]; strcpy_s(w, 256, x); strcat_s(w, 256, y); echo2(w, z); }
 #else
@@ -140,7 +143,7 @@ bool PEFile::readBody() {
         sections[i].RawData = peMemory + sectionTable[i].PointerToRawData;
         sections[i].Size = sectionTable[i].SizeOfRawData;
     }
-
+    printf("%x", sections[0].RawData);
     return true;
 }
 //==============================================================================
@@ -443,6 +446,7 @@ void PEFile::addImport(const char* dllName, const char** functions, int function
         importFunction->Next = new PE_IMPORT_FUNCTION();
         importFunction = importFunction->Next;
         importFunction->FunctionName = (char*)functions[i];
+        echo("Adding imported function '%s' from '%s'", functions[i], dllName);
     }
     importFunction->Next = NULL;
 }

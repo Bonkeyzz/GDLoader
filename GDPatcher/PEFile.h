@@ -40,6 +40,7 @@
 //==============================================================================
 #include <windows.h>
 #include <math.h>
+#include <stdio.h>
 //==============================================================================
 #define MAX_SECTION_COUNT       64
 #define SECTION_IMPORT          "@.import"
@@ -111,8 +112,8 @@ public:
     void                commit();
 
 private:
-    char* peMemory;
 
+    char* peMemory;
     void                init();
     bool                readFileData(char* filePath);
     bool                checkValidity();
