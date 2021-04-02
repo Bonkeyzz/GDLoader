@@ -92,7 +92,7 @@ int main()
 	// Create PE Section for the loader (with the size of 0x32 and marked as executable)
     int testsecLoc = pe.addSection(".loader", 0x32, true);
 
-	// Add imports with the 3 base on_gd_entrypoint functions
+	// Adding imports from GDLoader.dll
     const char* functions[] = { "?pre_init@@YAXXZ", "?post_init@@YAXXZ", "?on_title_screen@@YAXXZ" };
     pe.addImport("GDLoader.dll", functions, 3);
 
