@@ -53,9 +53,9 @@ __declspec(naked) void* ldrCode()
     __asm
     {
     	/* On_GD_Entrypoint */
-        pushad
-        pushfd
-        mov ebx, 0x7C122CE0
+        nop
+        nop
+        mov ebx, 0x7BE92CE0
         call ebx
         mov ebx, 0x00662730
         mov esi, 0xFFFF0000

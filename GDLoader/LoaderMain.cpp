@@ -78,7 +78,7 @@ void __declspec(dllexport) __cdecl pre_init() {
 			if (lib)
 			{
 				printf("[LoaderMain.cpp] Loaded: %s\n", mod_filename.c_str());
-				preInitFunc = (MOD_INIT)GetProcAddress(lib, "init");
+				preInitFunc = (MOD_INIT)GetProcAddress(lib, "on_gd_entrypoint");
 				if (NULL != preInitFunc)
 				{
 					preInitFunc();
