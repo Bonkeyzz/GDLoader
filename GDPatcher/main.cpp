@@ -5,10 +5,6 @@
 #include <iostream>
 #include <filesystem>
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdint.h>
-
 #include "PEFile.h"
 #include "__global_macro.h"
 
