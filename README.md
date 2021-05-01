@@ -9,6 +9,7 @@ This project aims to allow people to load their own mods in Geometry Dash withou
 1. Download the [latest release](https://github.com/Bonkeyzz/GDLoader/releases) of the mod loader.
 2. Extract it.
 3. Open `GDPatcher.exe`, it will ask for a the game directory of the game. It usually is `C:\Program Files (x86)\Steam\steamapps\common\Geometry Dash` but if you have installed it in a different directory then make sure to use that.
+4. If it says `Patch Done` then everything should be okay. You can now use Mods in the game!
 
 ## Issues
 1. ~~`GDLoader.dll` Base address is being relocated so the program crashes when the injected code tries to call the `pre_init` function.~~ (**Fixed**)
