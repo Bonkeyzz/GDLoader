@@ -57,7 +57,6 @@ std::wstring GetCurrentPath() {
 	return std::wstring(buffer).substr(0, pos);
 }
 
-
 void __declspec(dllexport) __cdecl pre_init() {
 	CreateConsole();
 	std::wstring wcurrentDir = GetCurrentPath();
@@ -65,7 +64,8 @@ void __declspec(dllexport) __cdecl pre_init() {
 	std::string currentDir{ wcurrentDir.begin(), wcurrentDir.end() };
 	if (dirExists(currentDir))
 	{
-
+		printf("[LoaderMain.cpp] hi.");
+		printf("[LoaderMain.cpp] hi there.");
 		for (const auto& entry : fs::directory_iterator(currentDir))
 		{
 			MOD_INIT preInitFunc;
