@@ -1,4 +1,4 @@
-// LoaderBuilder: Builds raw asm code for GD Patcher.
+// LoaderBuilder: Internal tool that builds raw asm code for GD Patcher.
 
 #define _CRT_SECURE_NO_WARNINGS               // Bad.
 
@@ -48,16 +48,13 @@ int main()
         FILE* out = fopen("code.bin", "wb");
         if (out != NULL)
         {
-            size_t to_go = ldrSize;
-            while (to_go > 0)
-            {
-                const size_t wrote = fwrite(data, to_go, 1, out);
-                if (wrote == 0)
-                    break;
-                to_go -= wrote;
-            }
+            const size_t wrote = fwrite(data, ldrSize, 1, out);
+            if (wrote == ldrSize) printf("Failed to write! wrote 0x%x bytes and ldrSize is 0x%x\n", wrote, ldrSize);
+            else printf("Done! Wrote 0x%x\n", wrote);
             fclose(out);
         }
         free(data);
     }
+    printf("Press any key to continue...\n");
+    getchar();
 }
