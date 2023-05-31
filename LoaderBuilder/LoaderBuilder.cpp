@@ -1,5 +1,6 @@
 // LoaderBuilder: Builds raw asm code for GD Patcher.
 
+#define _CRT_SECURE_NO_WARNINGS               // Bad.
 
 #include <iostream>
 #include <Windows.h>

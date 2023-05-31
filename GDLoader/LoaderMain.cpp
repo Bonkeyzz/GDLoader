@@ -64,8 +64,7 @@ void __declspec(dllexport) __cdecl pre_init() {
 	std::string currentDir{ wcurrentDir.begin(), wcurrentDir.end() };
 	if (dirExists(currentDir))
 	{
-		printf("[LoaderMain.cpp] hi.");
-		printf("[LoaderMain.cpp] hi there.");
+		printf("[LoaderMain.cpp] Started!\n");
 		for (const auto& entry : fs::directory_iterator(currentDir))
 		{
 			MOD_INIT preInitFunc;

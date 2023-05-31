@@ -5,11 +5,44 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
+using GDPatcher;
 
 namespace PEEdit
 {
 	class Utils
 	{
+		public static void DeleteFile(string fileToDelete)
+		{
+			try
+			{
+				var fi = new FileInfo(fileToDelete);
+				if (fi.Exists)
+				{
+					fi.Delete();
+					fi.Refresh();
+					while (fi.Exists)
+					{
+						Thread.Sleep(200);
+						fi.Refresh();
+					}
+				}
+			}
+			catch(Exception ex)
+			{
+				Console.WriteLine(ex);
+			}
+		}
+		public static void CleanUp()
+		{
+			if (Program._gdPath != null)
+			{
+				if (File.Exists($"{Program._gdPath}\\GeometryDash_stage1patch.exe"))
+					DeleteFile($"{Program._gdPath}\\GeometryDash_stage1patch.exe");
+				if (File.Exists($"{Program._gdPath}\\GeometryDash_stage2patch.exe"))
+					DeleteFile($"{Program._gdPath}\\GeometryDash_stage2patch.exe");
+			}
+		}
 		public static void WriteLog(string value, ConsoleColor front, ConsoleColor back = default)
 		{
 			if (back != default)
@@ -25,6 +58,7 @@ namespace PEEdit
 		{
 			WriteLog("Press [ENTER] to exit.", ConsoleColor.White);
 			Console.ReadLine();
+			CleanUp();
 			Environment.Exit(exitCode);
 		}
 
