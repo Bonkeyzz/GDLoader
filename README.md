@@ -6,6 +6,7 @@
 This project aims to allow people to load their own mods in Geometry Dash without using DLL injection or external programs to write to the game's memory.
 
 ## Installing
+0. If you don't have .NET Core 6 installed please install it. [Link](https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/runtime-6.0.16-windows-x86-installer?cid=getdotnetcore). **Application may open and close without any output if you don't have it.**
 1. Download the [latest release](https://github.com/Bonkeyzz/GDLoader/releases) of the mod loader.
 2. Extract it.
 3. Open `GDPatcher.exe`, it will ask for a the game directory of the game. It usually is `C:\Program Files (x86)\Steam\steamapps\common\Geometry Dash` but if you have installed it in a different directory then make sure to use that.
